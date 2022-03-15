@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head>
+       
+        <script src="https://unpkg.com/vue@3"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        
+        <title>MyTycoonGame</title>
+        <meta charset="utf-8">
+       <link rel="stylesheet" href="/layouts/CSS/styles.css">
+      <style>
+ body { 
+
+
+background-image: url('/layouts/myTycoonGame/Images/stockMarket/stockMarketBG.jpg');
+ background-size: cover;
+ background-repeat: no-repeat;
+ background-attachment:fixed;
+ 
+
+      }
+      </style>
+      
+ 
+     
+
+    </head>
+
+</head>
+<body>
+    <header>
+        <div id="app1" class="bg-slate-900 h-16 flex flex-row justify-between">
+            
+
+            <div class="flex items-center h-16 ">
+
+              <div  class="flex flex-row">
+
+                <div class="grid grid-row space-y-12">
+
+               
+                <button @click="toggleShowBooks" class="mainMenu-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" class=" ml-4 h-9 w-9 " fill="none" viewBox="0 0 24 24" stroke="white">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                   </svg>
+                </button>
+
+               
+
+
+  <div v-if="showBooks"  class=" w-32  bg-gray-600 text-white grid grid-row absolute text-center">
+    <a class="hover:bg-orange-600" href="#">Link 1</a>
+    <a class="hover:bg-orange-600" href="#">Link 2</a>
+    <a class="hover:bg-orange-600" href="#">Link 3</a>
+  </div>
+
+</div>
+
+
+              
+                
+                   <label id="mytime"  class="text-white"></label>
+                  
+                   <script>
+                    setInterval(myTimer, 1000);
+
+function myTimer() {
+const d = new Date();
+document.getElementById("mytime").innerHTML = d.toLocaleTimeString();
+}
+                  </script>
+                  
+
+                </div>
+            </div>
+
+           
+               <div class=" mr-12 flex flex-row">
+                  <div class=" grid grid-row">
+                <div class=" flex justify-center  w-48 bg-green-500 h-7 rounded-lg mt-0.5 border-2 border-cyan-600 ">
+          <label class="text-gray-700">$6,521,456,321</label>
+                </div>
+                <div class="flex flex-row mt-0.5 ">
+
+                     <div class="justify-center flex flex-row bg-teal-500 w-24 h-7 rounded-lg mt-0.5 border-2 border-lime-500 ">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="#0891b2" viewBox="0 0 24 24" stroke="#1e3a8a">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                        
+                      </svg>
+
+                      <label>70</label>
+                     </div>
+                     
+                     <div class=" flex justify-center rounded-lg mt-0.5 border-2 border-cyan-600 ml-0.5 w-24 bg-fuchsia-700">
+                         <label>Lv.24(%15)</label>
+                     </div>
+
+                     
+
+                </div>
+
+               
+               </div> 
+              
+              
+              <img src="/layouts/myTycoonGame/Images/45859eef89131df5d01bb825ca8244020e337de8.png"  alt="CompanyImage" class="w-16 h-16 ml-1">
+              
+             </div>
+              
+
+                
+                    
+                
+                   
+
+                
+            
+        </div>
+      </header>
+<div>
+  <div class="flex flex-row " >
+    <img src="/layouts/myTycoonGame/Images/45859eef89131df5d01bb825ca8244020e337de8.png"  alt="CompanyImage" class="rounded-full border-2 border-red-800 h-20 w-20" >
+
+            <div class="flex flex-row ml-1 bg-orange-600 self-center rounded-lg border-2 border-red-800 ">
+              <label class=" text-black ml-1">THE YILDIRIMLAR</label>
+
+              <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </div> 
+
+      
+            
+            
+           
+  </div>
+</div>
+
+<script>
+  fetch('https://localhost:44318/api/test/Listshare')
+  .then(response => response.json())
+  .then(data => console.log(data));
+</script>
+
+
+<div class="bg-white mt-4">
+  <canvas id="myChart"></canvas>
+</div>
+
+<script>
+  const labels = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    
+  ];
+
+  const data = {
+    labels: labels,
+    datasets: [{
+      label: 'Share Price',
+      backgroundColor: 'rgb(255, 99, 132)',
+      borderColor: 'rgb(255, 99, 132)',
+      data: [10,11 , 12.5, 11, 13, 10, 14],
+    }]
+  };
+
+  const config = {
+    type: 'line',
+    data: data,
+    options: {}
+  };
+</script>
+
+<script>
+const myChart = new Chart(
+document.getElementById('myChart'),
+config
+);
+</script>
+</div>
+
+
+
+
+      <script src="/layouts/myTycoonGame/app.js"></script>
+      
+</body>
+</html>

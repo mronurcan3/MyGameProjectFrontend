@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Vue</title>
+    <script src="https://unpkg.com/vue@3"></script>
+    <link rel="stylesheet" href="/layouts/CSS/styles.css">
+   //ssss12
+</head>
+<body class="bg-teal-700">
+
+    <div>
+
+        <label class="text-3xl text-yellow-500">Hello view</label>
+
+        <div id="app1">
+
+            <div v-if="false">
+
+            
+            <p>{{title}} - {{author}} - {{ age }}</p>
+            
+            <button  class="bg-orange-700 h-9 w-48" v-on:click="age++">incresase age</button>
+<br>
+            <button  class="mt-2.5 bg-orange-700 h-9 w-48" v-on:click="age--">decarease age</button>
+            <br>
+            <button  class="mt-2.5 bg-orange-700 h-9 w-48" @click="title='sometihng else'">change title</button>
+        </div>
+        </div>
+
+       
+    </div>
+  
+
+    
+    <script src="app.js"></script>
+</body>
+
+
+</html>
